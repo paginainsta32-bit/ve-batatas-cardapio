@@ -12,9 +12,15 @@ body {
 
 .hero {
   position: relative;
-  background: linear-gradient(135deg, #ff0000, #1a1a1a);
-  padding: 60px 20px;
+  background: url('assets/banner.png') center center/cover no-repeat;
+  min-height: 420px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
+  padding: 40px 20px;
 }
 
 .overlay {
