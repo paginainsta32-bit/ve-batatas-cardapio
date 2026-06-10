@@ -1,89 +1,46 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>V.E Batatas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V.E BATATAS</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <header class="hero">
-    <div class="overlay"></div>
+<header class="hero">
+  <div class="overlay"></div>
 
-    <div class="hero-content">
-      <img src="assets/logo.png" class="logo" alt="V.E Batatas">
+  <div class="hero-content">
+    <img src="assets/logo.png" class="logo">
 
-      <h1>V.E BATATAS</h1>
-      <p>Batatas fritas e pratinho</p>
+    <h1>V.E BATATAS</h1>
+    <p>Batatas fritas e pratinho</p>
+  </div>
+</header>
 
-      <a class="whatsapp-btn"
-         href="https://wa.me/5585992418588"
-         target="_blank">
-        FAZER PEDIDO NO WHATSAPP
-      </a>
-    </div>
-  </header>
+<main class="container">
 
-  <main class="container">
+  <h2 class="titulo">🍟 Cardápio</h2>
 
-    <section class="menu-section">
-      <h2>🍟 Batatas Fritas</h2>
+  <div id="menu"></div>
 
-      <div class="card">
-        <span>Porção Pequena</span>
-        <strong>R$ 5,00</strong>
-      </div>
+  <div class="total-box">
+    <h3>Total: <span id="total">R$ 0,00</span></h3>
 
-      <div class="card">
-        <span>Porção Média</span>
-        <strong>R$ 10,00</strong>
-      </div>
+    <button onclick="enviarPedido()">
+      FINALIZAR PEDIDO
+    </button>
+  </div>
 
-      <div class="card">
-        <span>Porção Grande</span>
-        <strong>R$ 15,00</strong>
-      </div>
+</main>
 
-      <div class="card destaque">
-        <span>Fritas com Calabresa</span>
-        <strong>R$ 15,00</strong>
-      </div>
-    </section>
-
-    <section class="menu-section">
-      <h2>🍛 Pratinhos</h2>
-
-      <div class="card">
-        <span>Pratinho com Vatapá (Pequeno)</span>
-        <strong>R$ 8,00</strong>
-      </div>
-
-      <div class="card">
-        <span>Pratinho com Vatapá (Grande)</span>
-        <strong>R$ 12,00</strong>
-      </div>
-
-      <div class="card">
-        <span>Pratinho com Creme de Galinha (Pequeno)</span>
-        <strong>R$ 8,00</strong>
-      </div>
-
-      <div class="card">
-        <span>Pratinho com Creme de Galinha (Grande)</span>
-        <strong>R$ 12,00</strong>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2026 V.E Batatas - Todos os direitos reservados</p>
-  </footer>
+<script src="script.js"></script>
 
 </body>
 </html>
