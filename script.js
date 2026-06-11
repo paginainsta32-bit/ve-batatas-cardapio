@@ -1,4 +1,4 @@
-﻿const produtos = [
+const produtos = [
   { nome: "Porção Pequena", preco: 5 },
   { nome: "Porção Média", preco: 10 },
   { nome: "Porção Grande", preco: 15 },
@@ -82,4 +82,45 @@ function enviarPedido() {
     `https://wa.me/${numero}?text=${mensagem}`,
     "_blank"
   );
+}
+// ... Todo o seu código anterior dos produtos, alterarQtd, atualizarTotal e enviarPedido continua igual aqui ...
+
+// ==========================================
+// LÓGICA DO CARROSSEL (ADICIONE NO FINAL)
+// ==========================================
+let slideAtual = 0;
+const slides = document.querySelectorAll('.carousel-item');
+const pontos = document.querySelectorAll('.dot');
+const tempoAuto = 4000; // Tempo em milissegundos (4 segundos)
+let intervaloCarrossel = setInterval(() => mudarSlide(1), tempoAuto);
+
+function mostrarSlide(index) {
+  // Trata os limites para reiniciar o carrossel nas pontas
+  if (index >= slides.length) { slideAtual = 0; }
+  else if (index < 0) { slideAtual = slides.length - 1; }
+  else { slideAtual = index; }
+
+  // Reseta as classes ativas
+  slides.forEach(slide => slide.classList.remove('active'));
+  pontos.forEach(ponto => ponto.classList.remove('active'));
+
+  // Ativa o slide atual e o seu respectivo pontinho
+  slides[slideAtual].classList.add('active');
+  pontos[slideAtual].classList.add('active');
+}
+
+function mudarSlide(direcao) {
+  mostrarSlide(slideAtual + direcao);
+  resetarTempoAtomatico();
+}
+
+function irParaSlide(index) {
+  mostrarSlide(index);
+  resetarTempoAtomatico();
+}
+
+// Evita que o slide mude correndo logo após o usuário clicar manualmente em algo
+function resetarTempoAtomatico() {
+  clearInterval(intervaloCarrossel);
+  intervaloCarrossel = setInterval(() => mudarSlide(1), tempoAuto);
 }
