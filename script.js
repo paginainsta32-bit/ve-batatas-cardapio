@@ -106,63 +106,59 @@ function verificarOpcaoPagamento() {
 function enviarPedidoFormulario(event) {
   event.preventDefault();
 
-  // Criamos uma lista (array) de linhas para garantir que a quebra de linha funcione sempre
-  let linhas = [];
+  let mensagem = "";
   
-  linhas.push("🍟 *NOVO PEDIDO - V.E BATATAS*");
-  linhas.push(""); // Linha em branco
+  mensagem += "🍟 *NOVO PEDIDO - V.E BATATAS*\n\n";
 
   let total = 0;
   produtos.forEach(produto => {
     if (produto.qtd > 0) {
-      linhas.push(`*${produto.qtd}x* ${produto.nome} (R$ ${(produto.preco * produto.qtd).toFixed(2)})`);
+      mensagem += `*${produto.qtd}x* ${produto.nome} (R$ ${(produto.preco * produto.qtd).toFixed(2)})\n`;
       total += produto.preco * produto.qtd;
     }
   });
 
-  linhas.push("");
-  linhas.push(`💰 *Total dos Itens:* R$ ${total.toFixed(2).replace('.', ',')}`);
-  linhas.push("");
-  linhas.push("────────────────────");
-  linhas.push("");
+  mensagem += `\n💰 *Total dos Itens:* R$ ${total.toFixed(2).replace('.', ',')}\n\n`;
+  mensagem += "────────────────────\n\n";
 
   const nome = document.getElementById("nome").value;
   const tipoEntrega = document.getElementById("entrega").value;
   const formaPagamento = document.getElementById("pagamento").value;
 
-  linhas.push(`👤 *Cliente:* ${nome}`);
+  mensagem += `👤 *Cliente:* ${nome}\n`;
   
   if (tipoEntrega === "entrega") {
     const rua = document.getElementById("rua").value;
     const bairro = document.getElementById("bairro").value;
     const referencia = document.getElementById("referencia").value;
     
-    linhas.push(`🛵 *Forma:* Teleentrega`);
-    linhas.push(`📍 *Endereço:* ${rua}, ${bairro}`);
+    mensagem += `🛵 *Forma:* Teleentrega\n`;
+    mensagem += `📍 *Endereço:* ${rua}, ${bairro}\n`;
     if (referencia) {
-      linhas.push(`📍 *Referência:* ${referencia}`);
+      mensagem += `📍 *Referência:* ${referencia}\n`;
     }
   } else {
-    linhas.push(`🛍️ *Forma:* Retirada no Local`);
+    mensagem += `🛍️ *Forma:* Retirada no Local\n`;
   }
 
-  linhas.push(`💳 *Pagamento:* ${formaPagamento}`);
+  mensagem += `💳 *Pagamento:* ${formaPagamento}\n`;
 
   if (formaPagamento === "Dinheiro") {
     const troco = document.getElementById("troco").value;
-    linhas.push(`💵 *Troco:* ${troco}`);
+    mensagem += `💵 *Troco:* ${troco}\n`;
   }
 
-  // Junta todas as linhas usando o caractere correto de quebra de linha
-  const textoCompleto = linhas.join("\n");
-
-  // Seu número do WhatsApp
+  // Número do seu WhatsApp
   const numero = "5585992418588"; 
   
-  // Usamos o encodeURIComponent direto no texto final montado com \n
-  window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(textoCompleto)}`, '_blank');
+  // O SEGREDO: Primeiro transformamos o texto padrão em link e depois forçamos a troca do \n por %0A
+  let textoCodificado = encodeURIComponent(mensagem);
+  
+  // Usamos o link oficial simplificado (wa.me) que funciona muito melhor em celulares
+  let linkWhatsApp = `https://wa.me/${numero}?text=${textoCodificado}`;
+  
+  window.open(linkWhatsApp, '_blank');
 }
-
 // ==========================================
 // LÓGICA DO CARROSSEL
 // ==========================================
