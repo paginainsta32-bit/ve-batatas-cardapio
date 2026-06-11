@@ -18,11 +18,36 @@
 
   <div class="hero-content">
     <img src="assets/logo.png" class="logo">
-
     <h1>V.E BATATAS</h1>
     <p>Batatas fritas e pratinho</p>
   </div>
 </header>
+
+<section class="carousel-container">
+  <div class="carousel-track">
+    <div class="carousel-item active">
+      <img src="assets/batata.png" alt="Batatas Fritas">
+      <div class="carousel-caption">Batatas Crocantes 🍟</div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/pratinho.png" alt="Pratinhos">
+      <div class="carousel-caption">Os Melhores Pratinhos 🍛</div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/bebidas.png" alt="Bebidas Geladas">
+      <div class="carousel-caption">Bebidas Trincando 🥤</div>
+    </div>
+  </div>
+
+  <button class="carousel-btn prev" onclick="mudarSlide(-1)">&#10094;</button>
+  <button class="carousel-btn next" onclick="mudarSlide(1)">&#10095;</button>
+
+  <div class="carousel-dots">
+    <span class="dot active" onclick="irParaSlide(0)"></span>
+    <span class="dot" onclick="irParaSlide(1)"></span>
+    <span class="dot" onclick="irParaSlide(2)"></span>
+  </div>
+</section>
 
 <main class="container">
 
