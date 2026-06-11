@@ -13,7 +13,7 @@ body {
 .hero {
   position: relative;
   background: url('assets/banner.png') center center/cover no-repeat;
-  min-height: 280px; /* Reduzi levemente para não empurrar o carrossel muito para baixo */
+  min-height: 280px;
 
   display: flex;
   align-items: center;
@@ -35,8 +35,8 @@ body {
 
 .logo {
   width: 120px;
-  border-radius: 50%; /* Fica muito moderno em formato circular */
-  border: 4px solid #ffd700; /* Borda dourada combinando com o tema */
+  border-radius: 50%;
+  border: 4px solid #ffd700;
   margin-bottom: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
@@ -53,13 +53,13 @@ body {
 }
 
 /* ==========================================
-   ESTILOS DO CARROSSEL (NOVO)
+   ESTILOS DO CARROSSEL
    ========================================== */
 .carousel-container {
   position: relative;
   max-width: 700px;
   margin: 20px auto 0 auto;
-  height: 400px;
+  height: 410px;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
@@ -89,7 +89,7 @@ body {
 .carousel-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que a foto preencha o espaço sem distorcer */
+  object-fit: cover;
 }
 
 .carousel-caption {
@@ -97,7 +97,7 @@ body {
   bottom: 20px;
   left: 20px;
   background: rgba(0, 0, 0, 0.7);
-  padding: 8px 16px;
+  padding: 8px 15px;
   border-radius: 8px;
   font-weight: 600;
   font-size: 16px;
@@ -105,7 +105,6 @@ body {
   z-index: 2;
 }
 
-/* Botões Direita/Esquerda */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -129,7 +128,6 @@ body {
 .carousel-btn.prev { left: 15px; }
 .carousel-btn.next { right: 15px; }
 
-/* Pontinhos Indicadores */
 .carousel-dots {
   position: absolute;
   bottom: 10px;
@@ -166,7 +164,7 @@ body {
 .titulo {
   margin-top: 10px;
   margin-bottom: 20px;
-  color: #ffd700; /* Mudado de azul escuro para Dourado */
+  color: #ffd700;
   font-size: 24px;
 }
 
@@ -183,7 +181,7 @@ body {
 }
 
 .item:hover {
-  transform: translateY(-2px); /* Efeito sutil ao passar o mouse */
+  transform: translateY(-2px);
 }
 
 .info h3 {
@@ -207,7 +205,7 @@ body {
   width: 35px;
   height: 35px;
   border: none;
-  border-radius: 50%; /* Botões redondos ficam mais suaves */
+  border-radius: 50%;
   background: #e63946;
   color: white;
   font-size: 18px;
@@ -220,7 +218,6 @@ body {
   background: #c1121f;
 }
 
-/* Botão de adicionar (+) verde ou amarelo gera um contraste legal com o de subtrair */
 .controls button:last-child {
   background: #2b9348;
 }
@@ -266,4 +263,110 @@ body {
 .total-box button:hover {
   background: #20ba5a;
   transform: scale(1.02);
+}
+
+/* ==========================================
+   ESTILOS DA SEGUNDA TELA (MODAL)
+   ========================================== */
+.modal-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-container.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #1f1f1f;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid #333;
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.modal-fechar:hover {
+  color: #ffd700;
+}
+
+.modal-content h2 {
+  color: #ffd700;
+  font-size: 22px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ccc;
+}
+
+.form-group input, 
+.form-group select {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: #ffd700;
+}
+
+.btn-enviar-whats {
+  width: 100%;
+  padding: 15px;
+  background: #25d366;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.btn-enviar-whats:hover {
+  background: #20ba5a;
 }
