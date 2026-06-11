@@ -65,6 +65,62 @@
 
 </main>
 
+<div id="modal-pedido" class="modal-container">
+  <div class="modal-content">
+    <button class="modal-fechar" onclick="fecharModal()">&times;</button>
+    
+    <h2>📋 Dados do Pedido</h2>
+    
+    <form id="form-pedido" onsubmit="enviarPedidoFormulario(event)">
+      <div class="form-group">
+        <label for="nome">Seu Nome:</label>
+        <input type="text" id="nome" required placeholder="Ex: Phelipe">
+      </div>
+
+      <div class="form-group">
+        <label for="entrega">Como deseja receber?</label>
+        <select id="entrega" onchange="verificarOpcaoEntrega()" required>
+          <option value="entrega">Teleentrega (Receber em Casa)</option>
+          <option value="retirada">Retirada no Local</option>
+        </select>
+      </div>
+
+      <div id="campos-endereco">
+        <div class="form-group">
+          <label for="rua">Rua e Número:</label>
+          <input type="text" id="rua" placeholder="Ex: Rua Central, 123">
+        </div>
+        <div class="form-group">
+          <label for="bairro">Bairro:</label>
+          <input type="text" id="bairro" placeholder="Ex: Centro">
+        </div>
+        <div class="form-group">
+          <label for="referencia">Ponto de Referência:</label>
+          <input type="text" id="referencia" placeholder="Ex: Próximo à praça">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pagamento">Forma de Pagamento:</label>
+        <select id="pagamento" onchange="verificarOpcaoPagamento()" required>
+          <option value="Pix">Pix</option>
+          <option value="Cartão">Cartão (Levar maquininha)</option>
+          <option value="Dinheiro">Dinheiro</option>
+        </select>
+      </div>
+
+      <div id="campo-troco" class="form-group" style="display: none;">
+        <label for="troco">Precisa de troco para quanto?</label>
+        <input type="text" id="troco" placeholder="Ex: Troco para R$ 50,00">
+      </div>
+
+      <button type="submit" class="btn-enviar-whats">
+        🚀 ENVIAR PEDIDO PARA O WHATSAPP
+      </button>
+    </form>
+  </div>
+</div>
+
 <script src="script.js"></script>
 
 </body>
