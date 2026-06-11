@@ -7,6 +7,8 @@
   { nome: "Vatapá Grande", preco: 12 },
   { nome: "Creme de Galinha Pequeno", preco: 8 },
   { nome: "Creme de Galinha Grande", preco: 12 },
+  { nome: "Refrigerante Coca 200ml", preco: 12 },
+  { nome: "Refrigerante Cajuina 200ml", preco: 12 },
 ];
 
 const menu = document.getElementById("menu");
